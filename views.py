@@ -1,11 +1,17 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
-
-
-def index(request):
-    return HttpResponse("<h1>Hello world </h1>")
+from django.template import loader
+from .models import Color
+# Create your views here.
+#def index(request):
+    #return HttpResponse("<h1>Hello world </h1>")
 def detail(request, colorname):
-    #return HttpResponse("You're looking at color %s." % colorname)
     return HttpResponse('<body bgcolor=%s>' % colorname)
+def index(request):
+    colorslist =  Color.objects.all()
+    template = loader.get_template('colortime/index.html')
+    context = {
+        'colorslist': colorslist,
+    }
+    return HttpResponse(template.render(context, request))
+
