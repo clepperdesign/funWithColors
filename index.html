@@ -1,0 +1,34 @@
+<head>
+<style>
+li { list-style-type: none;
+}
+h3 {
+    font-size: 50px;
+}
+a {
+    text-decoration: none;
+    color:white;
+}
+.button {
+    padding: 10px 40px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+}
+</style>
+<!-- Will add proper stylesheet in later, I know directly embedding CSS in like this isn't best form -->
+</head>
+<body>
+<center>
+{% if colorslist %}
+    <ul>
+    {% for color in colorslist %}
+        <li ><h3 class='button' style='background-color:{{ color.hex }};'><a href="/color/{{ color.hex }}/">{{ color.name }}</a></h3></li>
+    {% endfor %}
+    </ul>
+{% else %}"
+    <p>No colors here.</p>
+{% endif %}
+</center>
+</body>
