@@ -1,0 +1,11 @@
+<body style = 'background-color: {{ bodybg }}'>
+<h1>Hello World</h1>
+<h3>You're looking at the hex value {{ bodybg }}. </h3>
+{%if colorslist%}
+    {%for color in colorslist%} 
+        {%if color.hex == bodybg %}
+          <h3>  Also known as {{ color.name }}! </h3>
+        {%endif%}
+    {%endfor%}
+{%endif%}
+</body>
